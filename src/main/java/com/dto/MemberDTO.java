@@ -3,21 +3,22 @@ package com.dto;
 import java.sql.Timestamp;
 
 public class MemberDTO {
-	private int id;
+	private String id;
 	private String name;
 	private Timestamp join_date;
 	private String tel;
 	private String password;
+	private boolean isadmin;
 	
 	public MemberDTO(){
 		
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -51,6 +52,14 @@ public class MemberDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public boolean isIsadmin() {
+		return isadmin;
+	}
+
+	public void setIsadmin(boolean isadmin) {
+		this.isadmin = isadmin;
 	}
 		
 }

@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href = "<%=request.getContextPath() %>/list.member">list</a>
+	<a href = "<%=request.getContextPath() %>/read.member">list</a>
+	<a href = "<%=request.getContextPath() %>/create.member">create</a>
 	<a href = "<%=request.getContextPath() %>/update.member">update</a>
 	<a href = "<%=request.getContextPath() %>/delete.member">delete</a>
 </body>

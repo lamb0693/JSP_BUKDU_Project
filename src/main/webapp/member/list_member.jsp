@@ -9,8 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1> Member List </h1>
 	<c:forEach var="member" items="${members }">
-		${member.id} - ${member.name } - ${member.join_date } - ${member.tel } - ${member.password }
+		${member.id} - ${member.name } - ${member.join_date } - ${member.tel } - ${member.password } <BR>
 	</c:forEach>
 </body>
 </html>
