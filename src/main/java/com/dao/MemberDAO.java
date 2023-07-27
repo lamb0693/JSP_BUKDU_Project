@@ -79,7 +79,7 @@ public class MemberDAO extends JDBCConnection{
 		
 	}
 	
-public String createMember(String id, String password, String name, String tel, Timestamp join_date){
+	public String createMember(String id, String password, String name, String tel, Timestamp join_date){
 		
 		String sql = "INSERT INTO member (id, password, name, tel, join_date) " 
 				  + "VALUES (?, ? ,?, ?, ?)";
@@ -108,6 +108,46 @@ public String createMember(String id, String password, String name, String tel, 
 			return e.getMessage();
 		}
 
+	}
+	
+	// login 성공하면 dto return 실패하면 null return
+	public MemberDTO checkLogin(String id, String password) {
+		MemberDTO dto = new MemberDTO();
+		
+		String sql = "SELECT * FROM member WHERE id = ? AND password = ?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);;
+			pstmt.setString(2, password);
+			System.out.println("---------" + pstmt.toString() + "--------------------");
+			resultSet =pstmt.executeQuery();
+			
+			while(resultSet.next()) {
+				dto = new MemberDTO();
+				dto.setId( resultSet.getString("id"));
+				dto.setPassword( resultSet.getString("password") );
+				dto.setName( resultSet.getString("name") );
+				dto.setTel(resultSet.getString("tel"));
+				dto.setIsadmin( resultSet.getBoolean("isadmin"));
+				dto.setJoin_date(resultSet.getTimestamp("join_date"));
+				
+				this.closeJDBCCOnnection();
+				
+				System.out.println("--------------MemberDAO return  MemberDTO :" + dto.getId() + "---------" );
+				return dto;
+			}
+		} catch (Exception e) {
+			System.out.println("------------error in getUserDTO---------------");
+			e.printStackTrace();
+			return null;
+		}
+		
+		this.closeJDBCCOnnection();
+		
+		System.out.println("----------MemberDAO --Login Fail ---------" );
+		return null;
+		
 	}
 	
 }

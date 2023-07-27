@@ -7,9 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href = "<%=request.getContextPath() %>/read.member">list</a>
-	<a href = "<%=request.getContextPath() %>/create.member">create</a>
-	<a href = "<%=request.getContextPath() %>/update.member">update</a>
-	<a href = "<%=request.getContextPath() %>/delete.member">delete</a>
+	<%=request.getContextPath() %>
+	<hr>
+	<a href = "<%=request.getContextPath() %>/read.member">list member</a>
+	<a href = "<%=request.getContextPath() %>/create.member">create member</a>
+	<a href = "<%=request.getContextPath() %>/update.member">update member</a>
+	<a href = "<%=request.getContextPath() %>/delete.member">delete member</a>
+	<hr>
+	<a href = "<%=request.getContextPath() %>/read.board">list board</a>
+	<a href = "<%=request.getContextPath() %>/create.board">create board</a>
+	<a href = "<%=request.getContextPath() %>/update.board">update board</a>
+	<a href = "<%=request.getContextPath() %>/delete.board">delete board</a>
 </body>
 </html>

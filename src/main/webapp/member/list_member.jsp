@@ -13,5 +13,6 @@
 	<c:forEach var="member" items="${members }">
 		${member.id} - ${member.name } - ${member.join_date } - ${member.tel } - ${member.password } <BR>
 	</c:forEach>
+	
 </body>
 </html>

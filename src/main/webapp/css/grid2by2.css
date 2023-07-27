@@ -1,0 +1,282 @@
+@charset "UTF-8";
+
+.bgcolor1{
+    background-color:#aaaaaa
+}
+.bgcolor2{
+    background-color:#cccccc
+}
+.container{
+    width : 930px;
+    margin: 0 auto;
+    background-color: #dddddd;
+}
+.head_image{
+    margin : 0 auto;
+    width: 900px;
+    height : 100px;
+    margin-bottom: 3px;
+}
+.wrap_grid{
+    display: grid;
+    grid-template-columns: 450px 450px;
+    grid-template-rows: 300px 300px;
+    place-items: center; /*안의 item center 그리드 안에만 작용 */
+    margin: 0 auto;
+    max-width: 1000px ; /* 이것을 주어야 overflow가 안 나고, 그래야 가운데 온다 */
+    justify-content :center /* 이건 grid만 작용 더 확실하게 하려면 */
+}
+.wrap_grid div{
+    margin: 2px;
+}
+.grid11{
+    grid-column-start: 1 ;
+    grid-column-end: 2;
+    background-color: aqua;
+    text-align: center;
+}
+.grid12{
+    grid-column-start: 2 ;
+    grid-column-end: 3;
+    background-color: aqua;
+    text-align: center;
+}
+.grid21{
+    grid-column-start: 1 ;
+    grid-column-end: 2;  
+    background-color:rgb(100, 255, 255);
+    font-size : 12px;
+}
+.grid22{
+    grid-column-start: 2 ;
+    grid-column-end: 3;
+    background-color: bisque;
+} 
+.flex_container{
+    margin : 0 auto;
+    width: 400px;
+    display: flex;
+    height : 30px;
+    margin-bottom: 3px;
+}
+.id{
+    flex : 0 0 40px;
+    /* background-color: red; */
+    text-align: center;
+    line-height: 30px;
+    margin-right: 2px;
+}
+.content{
+    flex : 0 0 160px;
+    text-align: left;
+    line-height: 30px;
+    margin-right: 2px;
+}
+.writer{
+    flex : 0 0 50px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 2px;
+}
+.date{
+    flex : 0 0 90px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 2px;
+}
+.view{
+    flex : 0 0 40px;
+    text-align: right;
+    line-height: 30px;   
+    margin-right: 2px;
+}
+.id_headline{
+    flex : 0 0 40px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 2px;
+}
+.content_headline{
+    flex : 0 0 160px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 2px;
+}
+.writer_headline{
+    flex : 0 0 50px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 2px;
+}
+.date_headline{
+    flex : 0 0 90px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 2px;
+}
+.view_headline{
+    flex : 0 0 40px;
+    text-align: center;
+    line-height: 30px;   
+    margin-right: 2px;
+}
+.flex_menu_container{
+    margin : 0 auto;
+    width: 900px;
+    display: flex;
+    height : 30px;
+    margin-bottom: 3px;
+}
+.flex_menu_container div{
+    line-height: 30px;
+    text-align: center;
+    margin: 3px;
+}
+.hamburger{
+    display: none;
+}
+.menu1{
+    flex : 0 1 100px;
+}
+.menu2{
+    flex : 0 1 100px;
+}
+.menu3{
+    flex : 0 1 100px;
+}
+.menu4{
+    flex :0 1 100px;
+}
+.menu5{
+    flex : 0 1 100px;
+}
+.menu6{
+    flex : 1 1 150px;    
+}
+.footer_area{
+    margin : 0 auto;
+    width: 900px;
+    height : 50px;
+    margin-bottom: 3px;       
+}
+.modal_dlg_bg{
+    position: absolute;
+    display : none;
+    top : 0;
+    left : 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: #aaaaaa;
+}
+.modal_dlg_form{
+    position : absolute;
+    top : 300px;
+    left : 800px;
+    width: 400px;
+    height : 300px;
+    background-color: burlywood;
+    text-align: center;
+}
+.modal_logout_dlg_bg{
+    position: absolute;
+    display : none;
+    top : 0;
+    left : 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: #aaaaaa;	
+}
+.modal_logout_dlg_form{
+    position : absolute;
+    top : 300px;
+    left : 800px;
+    width: 400px;
+    height : 200px;
+    background-color: burlywood;
+    text-align: center;	
+}
+@media (max-width: 920px) {
+    .wrap_grid{
+        display: grid; /* Keep the display as grid */
+        grid-template-columns: 1fr; /* Use one column instead of two */
+        grid-template-rows: 350px 350px 350px 350px;
+        place-items: center; /* 안의 item center */
+        margin: 0 auto;
+        max-width: 920px ; /* 이것을 주어야 overflow가 안 나고, 그래야 가운데 온다 */
+        justify-content :center; /*이건 optional 더 확실하게 하려면 */
+    }
+    .grid11{
+        grid-column-start: 1 ;
+        grid-column-end: 2;
+        background-color: aqua;
+        text-align: center;
+        width: 450px;
+        height: 350px;
+    }
+    .grid12{
+        grid-column-start: 1 ;
+        grid-column-end: 2;
+        background-color: rgb(214, 197, 206);
+        text-align: center;
+        width: 450px;
+        height: 350px;
+    }
+    .grid21{      
+        grid-column-start: 1 ;
+        grid-column-end: 2;
+        background-color: blueviolet;
+        max-width: 450px; /* Change width to max-width */
+        width: 100%; /* Add this line to take up full width available */
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .grid22{
+        grid-column-start: 1 ;
+        grid-column-end: 2;
+        background-color: bisque;
+        width: 450px;
+        height: 350px;
+    }
+    .head_image{
+        margin : 0 auto;
+        width: 450px;
+        height : 100px;
+        margin-bottom: 3px;
+    }
+    .flex_menu_container{
+        margin : 0 auto;
+        width: 450px;
+        display: flex;
+        height : 30px;
+        margin-bottom: 3px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .menu1{
+        display: none;
+    }
+    .menu2{
+        display: none;
+    }
+    .menu3{
+        display: none;
+    }
+    .menu4{
+        display: none;
+    }
+    .menu5{
+        display: none;
+    }
+    .footer_area{
+        margin : 0 auto;
+        width: 450px;
+        height : 50px;
+        margin-bottom: 3px;
+    }
+}  
