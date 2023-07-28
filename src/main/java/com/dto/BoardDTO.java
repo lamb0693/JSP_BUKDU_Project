@@ -10,6 +10,7 @@ public class BoardDTO {
 	private String content;
 	private Timestamp created_at;
 	private Timestamp modified_at;
+	private boolean open_reply;
 	
 	public BoardDTO() {
 		
@@ -70,5 +71,15 @@ public class BoardDTO {
 	public void setModified_at(Timestamp modified_at) {
 		this.modified_at = modified_at;
 	}
+
+	public boolean isOpen_reply() {
+		return open_reply;
+	}
+
+	public void setOpen_reply(boolean open_reply) {
+		this.open_reply = open_reply;
+	}
+	
+	
 		
 }

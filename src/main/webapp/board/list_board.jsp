@@ -26,7 +26,7 @@
 	            <div class="created_at">${board.created_at }</div>
 	            <div class="modified_at">${board.modified_at }</div>
 	            <div class="space"></div>
-	            <div class="modify"><a id="mod_${board.id}" onclick='modifyBoard(event, "${board.content}", ${board.id})'  href="#">수정</a></div>
+	            <div class="modify"><a id="mod_${board.id}" onclick='modifyBoard(event, "${board.content}", ${board.id})' href="#">수정</a></div>
 	            <div class="delete"><a id="del_${board.id}" onclick="deleteBoard(event)" href="#">삭제</a></div>
 	        </div>
             <div class="flex_container">
@@ -37,17 +37,23 @@
         	</div>
             <div class="flex_seperator">
             </div>
+            <c:if test="${board.open_reply == true }">
+            	${board.open_reply }
+            	<!--  댓글창 popup -->
+            	<div class="flex_container">
+	        		<div class="reply_area" id="reply_area">
+		        	    <div class="flex_container">댓글 쓰기</div>
+		        		<form class="new_baord_form" action="#">
+				        	<textarea class="new_board" name="content"></textarea><br>
+				        	<input type="submit" value="저장">
+			        	</form>
+			        </div>
+        		</div>
+            </c:if>
+
             
         </c:forEach>
-            <div class="flex_container">
-	        	<div class="reply_area" id="reply_area">
-	        	    <div class="flex_container">댓글 쓰기</div>
-	        		<form class="new_baord_form" action="#">
-			        	<textarea class="new_board" name="content"></textarea><br>
-			        	<input type="submit" value="저장">
-		        	</form>	
-	        	</div>
-        	</div>
+
         	<div class="flex_container">새 글 쓰기</div>
         	<div class="flex_container">
         		<form class="new_baord_form" method="post" action="/MyProject/create.board">
@@ -55,6 +61,7 @@
 		        	<input type="submit" value="저장">
 	        	</form>
         	</div>
+        
 		<!-- 수정용 modal popup -->
 		<div class= "modal_modify_board_bg" id = "modal_modify_board_bg">
 			<div class = "modal_modify_board" id="modal_modify_board">

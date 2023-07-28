@@ -11,7 +11,7 @@ public class BoardDAO extends JDBCConnection{
 		BoardDTO dto = null; 
 		Vector<BoardDTO> vBoard = new Vector<>();
 		
-		String sql = "SELECT * FROM board";
+		String sql = "SELECT * FROM board WHERE is_reply = 0";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -27,6 +27,7 @@ public class BoardDAO extends JDBCConnection{
 				dto.setContent(resultSet.getString("content"));
 				dto.setCreated_at(resultSet.getTimestamp("created_at"));
 				dto.setModified_at(resultSet.getTimestamp("modified_at"));
+				dto.setOpen_reply(resultSet.getBoolean("open_reply"));
 				
 				vBoard.add(dto);
 			}
