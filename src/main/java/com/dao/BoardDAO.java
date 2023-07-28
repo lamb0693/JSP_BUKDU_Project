@@ -35,7 +35,7 @@ public class BoardDAO extends JDBCConnection{
 			e.printStackTrace();
 		}
 		
-		this.closeJDBCCOnnection();
+		// this.closeJDBCCOnnection(); Controller에서 닫기
 		
 		System.out.println("--------------vBoard size in BoardDAO return :" + vBoard.size() + "---------" );
 		return vBoard;
@@ -65,10 +65,63 @@ public class BoardDAO extends JDBCConnection{
 			e.printStackTrace();
 		}
 		
-		this.closeJDBCCOnnection();
+		// this.closeJDBCCOnnection(); Controller에서 닫기
 		
 		System.out.println("--------------vBoard size in BoardDAO return :" + vBoard.size() + "---------" );
 		
 		return 0;
+	}
+	
+	public int deleteBoard(int board_id) {
+		int line = 0;
+		String sql = "DELETE FROM board WHERE id= ?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, board_id);
+
+			System.out.println("---------" + pstmt.toString() + "--------------------");
+			line =pstmt.executeUpdate();
+			
+			if(line==1) {
+				System.out.println("---- 해당 " + board_id + "번 글 삭제------------");
+			}else {
+				System.out.println("---------error in deleteBoard@BoardDAO-------");
+			}
+		} catch (Exception e) {
+			System.out.println("------------error in deleteBoard@BoardDAO---------------");
+			e.printStackTrace();
+		}
+		
+		// controller 에서 닫는지 확인
+		
+		return line; // 실패면 0 return
+	}
+	
+	public int updateBoard(int board_id, String content) {
+		int line = 0;
+		String sql = "Update board SET content = ? WHERE id = ?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(2, board_id);
+			pstmt.setString(1,  content);
+
+			System.out.println("---------" + pstmt.toString() + "--------------------");
+			line =pstmt.executeUpdate();
+			
+			if(line==1) {
+				System.out.println("---- 해당 " + board_id + "번 글 수정 완료------------");
+			}else {
+				System.out.println("---------error in updateBoard@BoardDAO-------");
+			}
+		} catch (Exception e) {
+			System.out.println("------------error in updateBoard@BoardDAO---------------");
+			e.printStackTrace();
+		}
+		
+		// controller 에서 닫는지 확인
+		
+		return line; // 실패면 0 return
 	}
 }

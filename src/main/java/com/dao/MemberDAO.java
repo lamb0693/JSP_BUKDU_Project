@@ -41,7 +41,7 @@ public class MemberDAO extends JDBCConnection{
 			e.printStackTrace();
 		}
 		
-		this.closeJDBCCOnnection();
+		//this.closeJDBCCOnnection();  Controller 에서 닫자
 		
 		System.out.println("--------------vMember size in MemberDAO return :" + vMember.size() + "---------" );
 		return vMember;

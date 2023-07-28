@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/MyProject/css/grid2by2.css">
+    <link rel="stylesheet" href="/MyProject/css/index_head.css">
     <script src="/MyProject/js/index_head.js"></script>
 </head>
 <body>

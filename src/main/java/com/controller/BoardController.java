@@ -63,6 +63,7 @@ public class BoardController extends HttpServlet {
 				
 				BoardDAO dao = new BoardDAO();
 				Vector<BoardDTO> vBoard = dao.selectAllBoard();
+				dao.closeJDBCCOnnection();
 				
 				System.out.println("============ vBoard size =" + vBoard.size() + "--------");
 				request.setAttribute("boards", vBoard);
@@ -79,6 +80,28 @@ public class BoardController extends HttpServlet {
 			System.out.println("--------update.board  in doGet BoardController---------");
 		} else if(command.equals("/delete.board")) {
 			System.out.println("-------delete.board  in doGet BoardController----------");
+			
+			if(checkSession(request)) {
+				System.out.println("session login");
+				System.out.println("------list.board  in doGet BoardController------");	
+				
+				// 지우고
+				int  board_id = Integer.parseInt ( (String)request.getParameter("board_id") );
+				System.out.println("--------delete ---board id >>>>" + board_id);
+				BoardDAO dao = new BoardDAO();
+				dao.deleteBoard(board_id);
+				// 다시 읽어서  세팅하고
+				Vector<BoardDTO> vBoard = dao.selectAllBoard();
+				request.setAttribute("boards", vBoard);
+
+				dao.closeJDBCCOnnection();
+				
+				dispatchTo("/board/list_board.jsp", request, response);
+			}
+			else {
+				System.out.println("session logout");
+				dispatchTo("index.jsp", request, response);
+			}
 		}
 	}
 
@@ -125,6 +148,29 @@ public class BoardController extends HttpServlet {
 			}			
 		} else if(command.equals("/update.board")){
 			System.out.println("--------update.board  in doPost BoardController---------");
+			
+			if(checkSession(request)) {
+				// board update
+				request.setCharacterEncoding("UTF-8");
+			
+				String content = request.getParameter("content");
+				int id =  Integer.parseInt(  (String) request.getParameter("modify_id") );
+				BoardDAO dao = new BoardDAO();
+				int line = dao.updateBoard(id, content);
+				
+				// 전체 만든 후 list page로 보내기
+				dao=new BoardDAO();
+				Vector<BoardDTO> vBoard = dao.selectAllBoard();
+				System.out.println("============ vBoard size =" + vBoard.size() + "--------");
+				request.setAttribute("boards", vBoard);
+				request.setAttribute("created_line", line);	
+				
+				dispatchTo("/board/list_board.jsp", request, response);
+			}
+			else {
+				System.out.println("session logout");
+				dispatchTo("index.jsp", request, response);
+			}	
 		} else if(command.equals("/delete.board")) {
 			System.out.println("------- delete.board  in doPost BoardController----------");
 		}

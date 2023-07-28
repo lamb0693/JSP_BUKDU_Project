@@ -18,5 +18,6 @@
 	<a href = "<%=request.getContextPath() %>/create.board">create board</a>
 	<a href = "<%=request.getContextPath() %>/update.board">update board</a>
 	<a href = "<%=request.getContextPath() %>/delete.board">delete board</a>
+	<a href =  "/MyProject/delete.board?board_id=1">test</a>
 </body>
 </html>
