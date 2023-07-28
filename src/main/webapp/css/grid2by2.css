@@ -11,12 +11,6 @@
     margin: 0 auto;
     background-color: #dddddd;
 }
-.head_image{
-    margin : 0 auto;
-    width: 900px;
-    height : 100px;
-    margin-bottom: 3px;
-}
 .wrap_grid{
     display: grid;
     grid-template-columns: 450px 450px;
@@ -32,19 +26,19 @@
 .grid11{
     grid-column-start: 1 ;
     grid-column-end: 2;
-    background-color: aqua;
+    background-color: rgb(0,255,0);
     text-align: center;
 }
 .grid12{
     grid-column-start: 2 ;
     grid-column-end: 3;
-    background-color: aqua;
+    background-color: rgb(255,0,0);
     text-align: center;
 }
 .grid21{
     grid-column-start: 1 ;
     grid-column-end: 2;  
-    background-color:rgb(100, 255, 255);
+    background-color:rgb(0, 0, 255);
     font-size : 12px;
 }
 .grid22{
@@ -120,83 +114,14 @@
     line-height: 30px;   
     margin-right: 2px;
 }
-.flex_menu_container{
-    margin : 0 auto;
-    width: 900px;
-    display: flex;
-    height : 30px;
-    margin-bottom: 3px;
-}
-.flex_menu_container div{
-    line-height: 30px;
-    text-align: center;
-    margin: 3px;
-}
-.hamburger{
-    display: none;
-}
-.menu1{
-    flex : 0 1 100px;
-}
-.menu2{
-    flex : 0 1 100px;
-}
-.menu3{
-    flex : 0 1 100px;
-}
-.menu4{
-    flex :0 1 100px;
-}
-.menu5{
-    flex : 0 1 100px;
-}
-.menu6{
-    flex : 1 1 150px;    
-}
+
 .footer_area{
     margin : 0 auto;
     width: 900px;
     height : 50px;
     margin-bottom: 3px;       
 }
-.modal_dlg_bg{
-    position: absolute;
-    display : none;
-    top : 0;
-    left : 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-    background-color: #aaaaaa;
-}
-.modal_dlg_form{
-    position : absolute;
-    top : 300px;
-    left : 800px;
-    width: 400px;
-    height : 300px;
-    background-color: burlywood;
-    text-align: center;
-}
-.modal_logout_dlg_bg{
-    position: absolute;
-    display : none;
-    top : 0;
-    left : 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-    background-color: #aaaaaa;	
-}
-.modal_logout_dlg_form{
-    position : absolute;
-    top : 300px;
-    left : 800px;
-    width: 400px;
-    height : 200px;
-    background-color: burlywood;
-    text-align: center;	
-}
+
 @media (max-width: 920px) {
     .wrap_grid{
         display: grid; /* Keep the display as grid */
