@@ -96,9 +96,13 @@
 /* ----------footer ------*/
 .footer_area{
     margin : 0 auto;
-    width: 920px;
-    height : 50px;
-    margin-bottom: 3px;       
+    width: 900px; /*  padding 만큼 줄임*/
+    height : 40px;
+    margin-bottom: 3px;    
+    line-height: 40px;
+    background-color: #444444;   
+    padding-left: 20px;
+    color : #cccccc;
 }
 @media (max-width: 920px) {
     .index_wrap_grid{
@@ -179,7 +183,6 @@
     .footer_area{
         margin : 0 auto;
         width: 450px;
-        height : 50px;
         margin-bottom: 3px;
     }
 }  

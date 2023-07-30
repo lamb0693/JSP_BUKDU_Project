@@ -1,11 +1,21 @@
 @charset "UTF-8";
 @import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
+.header_link_style{
+	text-decoration: none;
+	color : #dddddd;
+	font-size: 12px;
+}
 .header_link_home{
     margin : 0 auto;
-    width: 920px;	
+    width: 900px;	/* padding만큼 줄였음 */
     height : 40px;
-    font-size: 25px;
+    font-size: 24px;
+    background-color: #eeeeee;
+    padding-left: 20px;
+}
+.header_link_home > a {
+	text-decoration: none;
 }
 .header_image{
     margin : 0 auto;
@@ -21,6 +31,7 @@
     height : 40px;
     align-items: center;
     margin-bottom: 3px;
+    background-color: #333333;
 }
 .header_menu_container div{
 	margin : 0 10px 0 10px;
@@ -46,7 +57,7 @@
     flex : 1 1 100%;
 }
 .header_menu6{
-    flex : 0 1 400px;    
+    flex : 0 0 150px;    
 }
 .header_modal_login_bg{
     position: absolute;
@@ -172,6 +183,7 @@
     background-color: burlywood;
     text-align: center;	
 }
+
 
 @media (max-width: 920px) {
      .header_image{

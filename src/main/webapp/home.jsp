@@ -23,7 +23,13 @@
                     <div class='grid21_userid'>아이디</div>
                     <div class='grid21_content'>내용</div>
                     <div class='grid21_update'>수정</div>
-                    <div class='grid21_view'>댓글</div>
+                    <div class='grid21_view'>조회</div>
+                </div>
+                <div class='index_grid11_container bgcolor2'>
+                    <div class='grid21_userid'>chance</div>
+                    <div class='grid21_content'>공사중인 페이지 입니다</div>
+                    <div class='grid21_update'>2023/7/31</div>
+                    <div class='grid21_view'>5</div>
                 </div>
             </div> 
 	            <div class="index_grid12"> 
@@ -69,7 +75,9 @@
             </div> <!-- 2열 3번째-->
         </div>
         <div class="footer_area bgcolor2">
-            Footer Area
+            Email : <a href = "mailto: abc@example.com">Email</a>
+             &nbsp&nbsp&nbsp&nbsp Tel : 051-123-1234
+             &nbsp&nbsp&nbsp&nbsp 주소 : 부산시 부산진구 중앙대로 00길 00
         </div>
     </div>
 </body>
