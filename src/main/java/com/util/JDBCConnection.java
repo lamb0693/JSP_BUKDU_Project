@@ -18,9 +18,9 @@ public class JDBCConnection {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 
-			String url = "jdbc:mysql://localhost:3306/my_db";
+			String url = "jdbc:mysql://192.168.200.185:3306/my_db";
 			String id = "root";
-			String pwd = "0000";
+			String pwd = "ehddnrdl";
 			con = DriverManager.getConnection(url, id, pwd);
 			
 			System.out.println("----------db 연결 성공------------");

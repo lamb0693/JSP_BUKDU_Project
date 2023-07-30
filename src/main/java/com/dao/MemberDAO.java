@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.util.Vector;
 
 import com.dto.MemberDTO;
+import com.dto.MemberDTOWithReply;
 import com.util.JDBCConnection;
 
 public class MemberDAO extends JDBCConnection{
@@ -41,7 +42,7 @@ public class MemberDAO extends JDBCConnection{
 			e.printStackTrace();
 		}
 		
-		this.closeJDBCCOnnection();
+		//this.closeJDBCCOnnection();  Controller 에서 닫자
 		
 		System.out.println("--------------vMember size in MemberDAO return :" + vMember.size() + "---------" );
 		return vMember;

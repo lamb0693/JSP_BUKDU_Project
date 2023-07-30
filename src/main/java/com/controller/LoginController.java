@@ -46,6 +46,7 @@ public class LoginController extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO();
 		MemberDTO dto = dao.checkLogin(id, password);
+		dao.closeJDBCCOnnection();
 		
 		HttpSession session = request.getSession(false);
 

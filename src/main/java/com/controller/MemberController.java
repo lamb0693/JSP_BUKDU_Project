@@ -19,6 +19,29 @@ import com.dto.MemberDTO;
 @WebServlet("*.member")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	public boolean checkSession(HttpServletRequest request) {
+		javax.servlet.http.HttpSession session = request.getSession();
+		if(session.getAttribute("mp_user_id") == null) {
+			System.out.println("--checkSession@BoardControiller--session  = false - ----");
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public void dispatchTo(String urlTo, HttpServletRequest request, HttpServletResponse response ) {
+		RequestDispatcher dispatcher = request.getRequestDispatcher(urlTo);
+		try {
+			dispatcher.forward(request, response);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,10 +55,14 @@ public class MemberController extends HttpServlet {
 
 		if(command.equals("/read.member")){
 			System.out.println("------list.member  in doGet DispMember------");	
+			
 			MemberDAO dao = new MemberDAO();
 			Vector<MemberDTO> vMembers = dao.selectAllMember();
+			dao.closeJDBCCOnnection();
+			
 			System.out.println("============ vMember size =" + vMembers.size() + "--------");
 			request.setAttribute("members", vMembers);
+			
 			String urlTo = "/member/list_member.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(urlTo);
 			dispatcher.forward(request, response);
@@ -62,16 +89,18 @@ public class MemberController extends HttpServlet {
 			System.out.println("--------read.member  in doPost DispMember---------");
 		} else if(command.equals("/create.member")){
 			System.out.println("--------create.member  in doPost DispMember---------");
+			
 			String id = request.getParameter("name");
 			String name = request.getParameter("name");
 			String tel = request.getParameter("tel");
 			String password = request.getParameter("password");
+			
 			MemberDAO dao = new MemberDAO();
 			String result = dao.createMember(id, password, name, tel);
+			dao.closeJDBCCOnnection(); 
+			
 			request.setAttribute("result", result);
-			String urlTo = "/member/create_result.jsp";
-			RequestDispatcher dispatcher = request.getRequestDispatcher(urlTo);
-			dispatcher.forward(request, response);		
+			dispatchTo("/member/create_result.jsp", request, response);	
 		} else if(command.equals("/update.member")){
 			System.out.println("--------update.member  in doPost DispMember---------");
 		} else if(command.equals("/delete.member")) {

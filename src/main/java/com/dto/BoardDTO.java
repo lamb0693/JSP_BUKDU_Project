@@ -70,5 +70,6 @@ public class BoardDTO {
 	public void setModified_at(Timestamp modified_at) {
 		this.modified_at = modified_at;
 	}
+
 		
 }
