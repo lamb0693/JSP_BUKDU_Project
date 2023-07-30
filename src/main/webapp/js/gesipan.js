@@ -50,10 +50,25 @@
 	 window.location.href = ("/MyProject/delete.board?board_id="+numId)
  }
 
- const open_close_reply = (event) => {
-	 console.log("1111")
-	 const reply_area = event.target;
-	 console.log(reply_area, reply_area.id);
+ const open_close_reply = (event, id) => {
+	 event.preventDefault()
+	 let reply_area = "reply_area" + id
+	 const replyArea = document.getElementById(reply_area)
+	 console.log(event.target, event.target.textContent)
+  	 //console.log(textBetweenTags)
+	 if(event.target.textContent == '댓글열기'){
+		  event.target.textContent='댓글닫기'
+		  replyArea.style.display = "block"
+	 }
+	 else{
+	 	event.target.textContent='댓글열기'
+	 	replyArea.style.display = "none"	 
+	 } 
 	 
 	 // 글 마다 댓글을 만들어 놓고, disply none  block만 반복
+ }
+
+ 
+ const saveReply = (event)=> {
+	 console.log("save Reply")
  }

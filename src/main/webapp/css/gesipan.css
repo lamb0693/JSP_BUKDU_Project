@@ -1,16 +1,24 @@
 @charset "UTF-8";
-
+@import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 .bgcolor1{
     background-color:#aaaaaa
 }
 .bgcolor2{
     background-color:#cccccc
 }
-.container{
+.gesipan_container{
     margin : 0 auto;
-    width: 100%;
-    background-color: azure;
+    width: 920px;
+    background-color: #eeeeee;
     height: auto;
+}
+.gesipan_flex_container{
+    margin : 0 auto;
+    width: 920px;
+    display: flex;
+    height : auto;
+    margin-bottom: 3px;	
+    padding : 0 10px 0 10px;
 }
 .modal_dlg_bg{
     position: absolute;
@@ -31,56 +39,59 @@
     background-color: burlywood;
     text-align: center;
 }
-.flex_container{
-    margin : 0 auto;
-    width: 40%;
-    display: flex;
-    height : auto;
-    margin-bottom: 3px;
+.gesipan_flex_container > div{
+	margin : 1px 10px 1px 10px;
 }
-.id{
+.gesipan_other{
+	font-size :12px;
+}
+.gesipan_content{
+	font-size : 16px;
+}
+.gesipan_reply_content{
+	font-size : 14px;
+}
+.gesipan_id_re{
+    flex : 0 1 40px;	
+}
+.gesipan_id{
     flex : 0 1 60px;
     /* background-color: rgb(17, 0, 255); */
     text-align: left;
     line-height: 20px;
 }
-.created_at{
+.gesipan_modified_at{
     flex : 0 1 460px;
     /* background-color: rgb(17, 0, 255); */
     text-align: left;
     line-height: 20px;
     margin-right: 2px;
 }
-.modified_at{
-    flex : 0 1 460px;
-    /* background-color: rgb(17, 0, 255); */
-    text-align: left;
-    line-height: 20px;
-    margin-right: 2px;
-}
-.space{
+.gesipan_space{
     flex : 1 1  100%;
 }
-.modify{
+.gesipan_modify{
     flex : 0 1 80px;
     /* background-color: rgb(17, 0, 255); */
     text-align: left;
     line-height: 20px;
     margin-right: 2px;
 }
-.delete{
+.gesipan_delete{
     flex : 0 1 80px;
     /* background-color: rgb(17, 0, 255); */
     text-align: left;
     line-height: 20px;
 }
-.flex_seperator{
+.gesipan_flex_seperator{
     margin : 0 auto;
-    width: 40%;
-    display: flex;
+    width: 920px;
     height : 2px;
     margin-bottom: 3px;
     background-color: black;
+}
+.gesipan_link_element{
+	text-decoration: none;
 }
 .content{
     flex : 0 1 90%;
@@ -196,6 +207,9 @@
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
     line-height: 15px;   
+}
+.reply_area{
+	display: none;
 }
 
 @media (max-width: 1600px) {

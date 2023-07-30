@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import java.util.Vector;
 
 import com.dto.MemberDTO;
+import com.dto.MemberDTOWithReply;
 import com.util.JDBCConnection;
 
 public class MemberDAO extends JDBCConnection{

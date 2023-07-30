@@ -6,124 +6,102 @@
 .bgcolor2{
     background-color:#cccccc
 }
-.container{
-    width : 930px;
+.index_container{
+    width : 920px;
     margin: 0 auto;
     background-color: #dddddd;
 }
-.wrap_grid{
+.index_wrap_grid{
     display: grid;
-    grid-template-columns: 450px 450px;
-    grid-template-rows: 300px 300px;
-    place-items: center; /*안의 item center 그리드 안에만 작용 */
+    grid-template-columns: 460px 460px;
+    grid-template-rows: 350px 350px;
+    /*place-items: center; 안의 item center 그리드 안에만 작용 */
     margin: 0 auto;
     max-width: 1000px ; /* 이것을 주어야 overflow가 안 나고, 그래야 가운데 온다 */
     justify-content :center /* 이건 grid만 작용 더 확실하게 하려면 */
 }
-.wrap_grid div{
-    margin: 2px;
+.index_wrap_grid > div{
+    padding: 10px;
 }
-.grid11{
+.index_wrap_grid > div > div{
+	font-size: 14px;
+	padding : 4px 2px 4px 2px;
+}
+.index_grid11{
     grid-column-start: 1 ;
     grid-column-end: 2;
-    background-color: rgb(0,255,0);
-    text-align: center;
+    background-color:#FFFFE4;
 }
-.grid12{
+.index_grid12{
     grid-column-start: 2 ;
     grid-column-end: 3;
-    background-color: rgb(255,0,0);
-    text-align: center;
+    background-color: #FFFFD2;
+    overflow: hidden;
 }
-.grid21{
+.index_grid21{
     grid-column-start: 1 ;
     grid-column-end: 2;  
-    background-color:rgb(0, 0, 255);
-    font-size : 12px;
+    background-color:#FFFFD2;
 }
-.grid22{
+.index_grid22{
     grid-column-start: 2 ;
     grid-column-end: 3;
-    background-color: bisque;
-} 
-.flex_container{
-    margin : 0 auto;
-    width: 400px;
-    display: flex;
-    height : 30px;
-    margin-bottom: 3px;
+    background-color:#FFFFE4;
 }
-.id{
-    flex : 0 0 40px;
+.index_link_text {
+	text-decoration: none;
+}
+.index_grid11_container{
+	display: flex;
+	align-items: center;
+	/*padding : 4px 2px 4px 2px */;
+}
+.index_grid12_container{
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	justify-content: center;
+	/*padding : 4px 2px 4px 2px */;
+}
+.picture_in_gallery{
+
+}
+.index_grid21_container{
+	display: flex;
+	align-items: center;
+	/*padding : 4px 2px 4px 2px */;
+}
+.index_grid22_container{
+	display: flex;
+	align-items: center;
+	/*padding : 4px 2px 4px 2px */;
+}
+.grid21_userid{
+    flex : 0 0 80px;
     /* background-color: red; */
     text-align: center;
-    line-height: 30px;
-    margin-right: 2px;
 }
-.content{
-    flex : 0 0 160px;
+.grid21_content{
+    flex : 0 0 220px;
     text-align: left;
-    line-height: 30px;
-    margin-right: 2px;
 }
-.writer{
-    flex : 0 0 50px;
+.grid21_update{
+    flex : 0 0 100px;
     text-align: center;
-    line-height: 30px;
-    margin-right: 2px;
 }
-.date{
-    flex : 0 0 90px;
-    text-align: center;
-    line-height: 30px;
-    margin-right: 2px;
-}
-.view{
-    flex : 0 0 40px;
-    text-align: right;
-    line-height: 30px;   
-    margin-right: 2px;
-}
-.id_headline{
+.grid21_view{
     flex : 0 0 40px;
     text-align: center;
-    line-height: 30px;
-    margin-right: 2px;
 }
-.content_headline{
-    flex : 0 0 160px;
-    text-align: center;
-    line-height: 30px;
-    margin-right: 2px;
-}
-.writer_headline{
-    flex : 0 0 50px;
-    text-align: center;
-    line-height: 30px;
-    margin-right: 2px;
-}
-.date_headline{
-    flex : 0 0 90px;
-    text-align: center;
-    line-height: 30px;
-    margin-right: 2px;
-}
-.view_headline{
-    flex : 0 0 40px;
-    text-align: center;
-    line-height: 30px;   
-    margin-right: 2px;
-}
-
+/* ----------footer ------*/
 .footer_area{
     margin : 0 auto;
-    width: 900px;
+    width: 920px;
     height : 50px;
     margin-bottom: 3px;       
 }
-
 @media (max-width: 920px) {
-    .wrap_grid{
+    .index_wrap_grid{
         display: grid; /* Keep the display as grid */
         grid-template-columns: 1fr; /* Use one column instead of two */
         grid-template-rows: 350px 350px 350px 350px;
@@ -132,27 +110,27 @@
         max-width: 920px ; /* 이것을 주어야 overflow가 안 나고, 그래야 가운데 온다 */
         justify-content :center; /*이건 optional 더 확실하게 하려면 */
     }
-    .grid11{
+    .index_grid11{
         grid-column-start: 1 ;
         grid-column-end: 2;
         background-color: aqua;
         text-align: center;
-        width: 450px;
+        width: 460px;
         height: 350px;
     }
-    .grid12{
+    .index_grid12{
         grid-column-start: 1 ;
         grid-column-end: 2;
         background-color: rgb(214, 197, 206);
         text-align: center;
-        width: 450px;
+        width: 460px;
         height: 350px;
     }
-    .grid21{      
+    .index_grid21{      
         grid-column-start: 1 ;
         grid-column-end: 2;
         background-color: blueviolet;
-        max-width: 450px; /* Change width to max-width */
+        max-width: 460px; /* Change width to max-width */
         width: 100%; /* Add this line to take up full width available */
         height: 350px;
         display: flex;
@@ -160,14 +138,14 @@
         justify-content: center;
         align-items: center;
     }
-    .grid22{
+    .index_grid22{
         grid-column-start: 1 ;
         grid-column-end: 2;
         background-color: bisque;
-        width: 450px;
+        width: 460px;
         height: 350px;
     }
-    .head_image{
+    .index_head_image{
         margin : 0 auto;
         width: 450px;
         height : 100px;
