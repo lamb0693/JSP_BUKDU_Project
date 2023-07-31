@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.BoardDAO;
 import com.dto.BoardDTO;
+import com.dto.BoardDTOJoin;
 
 /**
  * Servlet implementation class BoardController
@@ -81,7 +82,7 @@ public class BoardController extends HttpServlet {
 
 				BoardDAO dao = new BoardDAO();
 
-				Vector<BoardDTO> vBoard = dao.selectAllBoard(nMax, nOff);
+				Vector<BoardDTOJoin> vBoard = dao.selectAllBoard(nMax, nOff);
 
 				Map<Integer, Vector<BoardDTO>> mapReply = dao.selectAllReply();
 
@@ -102,25 +103,19 @@ public class BoardController extends HttpServlet {
 			System.out.println("--------update.board  in doGet BoardController---------");
 		} else if (command.equals("/delete.board")) {
 			System.out.println("-------delete.board  in doGet BoardController----------");
+			
+			if (checkSession(request)) {
+				// board delete
+				int id = Integer.parseInt((String) request.getParameter("board_id"));
+				BoardDAO dao = new BoardDAO();
+				int line = dao.deleteBoard(id);
 
-			/*
-			 * if(checkSession(request)) { System.out.println("session login");
-			 * System.out.println("------list.board  in doGet BoardController------");
-			 * 
-			 * // 지우고 int board_id = Integer.parseInt (
-			 * (String)request.getParameter("board_id") );
-			 * System.out.println("--------delete ---board id >>>>" + board_id); BoardDAO
-			 * dao = new BoardDAO(); dao.deleteBoard(board_id); // 다시 읽어서 세팅하고
-			 * Vector<BoardDTO> vBoard = dao.selectAllBoard();
-			 * request.setAttribute("boards", vBoard);
-			 * 
-			 * dao.closeJDBCCOnnection();
-			 * 
-			 * dispatchTo("/board/list_board.jsp", request, response); } else {
-			 * System.out.println("session logout"); dispatchTo("index.jsp", request,
-			 * response); }
-			 */
-		}
+				response.sendRedirect("/MyProject/read.board");
+			} else {
+				System.out.println("session logout");
+				dispatchTo("index.jsp", request, response);
+			}		
+		}	
 	}
 
 	/**

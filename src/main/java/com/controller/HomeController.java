@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.BoardDAO;
-import com.dto.BoardDTO;
+import com.dto.BoardDTOJoin;
 
 /**
  * Servlet implementation class HomeController
@@ -27,7 +27,7 @@ public class HomeController extends HttpServlet {
 		// TODO Auto-generated method stub
 		BoardDAO dao = new BoardDAO();
 
-		Vector<BoardDTO> vBoard = dao.selectAllBoard(9, 0);
+		Vector<BoardDTOJoin> vBoard = dao.selectAllBoard(9, 0);
 
 		dao.closeJDBCCOnnection();
 

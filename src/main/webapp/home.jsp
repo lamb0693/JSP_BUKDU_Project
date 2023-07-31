@@ -8,10 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/MyProject/css/grid2by2.css">
+    <link rel="stylesheet" href="/MyProject/css/home.css">
     <link rel="stylesheet" href="/MyProject/css/header.css">
+    <link rel="stylesheet" href="/MyProject/css/footer.css">
     <script src="/MyProject/js/header.js"></script>
     <script src="/MyProject/js/home.js"></script>
+    
 </head>
 <body>
     <div class="index_container">
@@ -62,7 +64,7 @@
 	                    <div class='grid21_update'>
 	                    	<fmt:formatDate value="${board.modified_at}" pattern="y/M/d" type="date"/>
 	                    </div>
-	                    <div class='grid21_view'>254</div>
+	                    <div class='grid21_view'>${board.replyNo }</div>
                 	</div>
                 </c:forEach>
 
@@ -74,11 +76,7 @@
                 주재할 예정이다.
             </div> <!-- 2열 3번째-->
         </div>
-        <div class="footer_area bgcolor2">
-            Email : <a href = "mailto: abc@example.com">Email</a>
-             &nbsp&nbsp&nbsp&nbsp Tel : 051-123-1234
-             &nbsp&nbsp&nbsp&nbsp 주소 : 부산시 부산진구 중앙대로 00길 00
-        </div>
+		<jsp:include page="footer.jsp"></jsp:include>
     </div>
 </body>
 </html>

@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/MyProject/css/gesipan.css">
 <link rel="stylesheet" href="/MyProject/css/header.css">
+<link rel="stylesheet" href="/MyProject/css/footer.css">
 <script src="/MyProject/js/gesipan.js"></script>
 <script src="/MyProject/js/header.js"></script>
 <style>
@@ -25,7 +26,9 @@
       	
       	    <div class="gesipan_flex_container">
 	            <div class="gesipan_id gesipan_other" >${board.user_id }</div>
-	            <div class="gesipan_modified_at gesipan_other">${board.modified_at }</div>
+	            <div class="gesipan_modified_at gesipan_other">
+	            	<fmt:formatDate value="${board.modified_at}" pattern="y/M/d h:m:s" type="date"/>
+	            </div>
 	            <div class="gesipan_space gesipan_other"></div>
 	            <div class="gesipan_modify gesipan_other"><a class="gesipan_link_element" id="mod_${board.id}" onclick='modifyBoard(event, "${board.content}", ${board.id})' href="#">수정</a></div>
 	            <div class="gesipan_delete gesipan_other"><a class="gesipan_link_element" id="del_${board.id}" onclick="deleteBoard(event)" href="#">삭제</a></div>
@@ -37,7 +40,10 @@
             </div>
             <div class="gesipan_flex_container">
             	<div class="gesipan_other">
-            		<a class="gesipan_link_element" onclick="open_close_reply(event, ${board.id});" " href="#">댓글열기</a>
+            		<a class="gesipan_link_element" onclick="open_close_reply(event, ${board.id});"  href="#">댓글열기</a>
+            	</div>
+            	<div class="gesipan_other">
+            		댓글 수 : ${board.replyNo }
             	</div>
         	</div>
             <div class="reply_area" id="reply_area${board.id}">     
@@ -49,8 +55,12 @@
 		            			<div class="gesipan_id gesipan_other" >${reply.user_id }</div>
 		            			<div class="gesipan_modified_at gesipan_other">${reply.modified_at }</div>
 		            			<div class="gesipan_space gesipan_other"></div>
-		            			<div class="gesipan_modify gesipan_other"><a class="gesipan_link_element" id="mod_${reply.id}" onclick='modifyBoard(event, "${reply.content}", ${board.id})' href="#">수정</a></div>
-		            			<div class="gesipan_delete gesipan_other"><a class="gesipan_link_element" id="del_${reply.id}" onclick="deleteBoard(event)" href="#">삭제</a></div>
+		            			<div class="gesipan_modify gesipan_other">
+		            				<a class="gesipan_link_element" id="mod_${reply.id}" onclick='modifyBoard(event, "${reply.content}", ${reply.id})' href="#">수정</a>
+		            			</div>
+		            			<div class="gesipan_delete gesipan_other">
+		            				<a class="gesipan_link_element" id="del_${reply.id}" onclick="deleteBoard(event)" href="#">삭제</a>
+		            			</div>
 	        				</div>
 	        				<div class="gesipan_flex_container">
 	        					<div class="gesipan_id_re"></div>
@@ -127,6 +137,7 @@
 	    		</div>
 			</div>
 		</div>
+		<jsp:include page="../footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>
