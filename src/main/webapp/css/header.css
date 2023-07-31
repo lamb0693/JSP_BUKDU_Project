@@ -57,7 +57,7 @@
     flex : 1 1 100%;
 }
 .header_menu6{
-    flex : 0 0 150px;    
+    flex : 0 0 210px;    
 }
 .header_modal_login_bg{
     position: absolute;
@@ -169,6 +169,18 @@
 
 /* -- modal signon 창 -----***/
 .header_modal_signon_bg{
+    position: absolute;
+    display : none;
+    top : 0;
+    left : 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    background-color: #888888;		
+}
+
+/* -- modal modify_info 창 -----***/
+.header_modal_modify_info_bg{
     position: absolute;
     display : none;
     top : 0;

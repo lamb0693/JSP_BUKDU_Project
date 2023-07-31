@@ -3,11 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="2;url=/MyProject/home">
+<meta http-equiv="refresh" content="2;url=/MyProject/logoutController">
 <title>Insert title here</title>
 </head>
 <body>
-	${result } <br> 2초 후 홈페이지로 이동합니다
+	${result } <br> 정보가 수정되어 로그아웃 됩니다
 </body>
 </html>

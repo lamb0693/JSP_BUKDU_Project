@@ -104,6 +104,20 @@ public class MemberController extends HttpServlet {
 			dispatchTo("/member/create_result.jsp", request, response);	
 		} else if(command.equals("/update.member")){
 			System.out.println("--------update.member  in doPost DispMember---------");
+			
+			request.setCharacterEncoding("UTF-8");
+			String id = request.getParameter("id");
+			String name = request.getParameter("name");
+			String tel = request.getParameter("tel");
+			String password = request.getParameter("password");
+			
+			MemberDAO dao = new MemberDAO();
+			String result = dao.updateMember(id, password, name, tel);
+			dao.closeJDBCCOnnection(); 
+			
+			request.setAttribute("result", result);
+			dispatchTo("/member/update_result.jsp", request, response);
+			
 		} else if(command.equals("/delete.member")) {
 			System.out.println("-------delete.member  in doPost DispMember----------");
 		}

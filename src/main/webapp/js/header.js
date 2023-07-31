@@ -57,3 +57,21 @@ const closeSingonPopup = (event) => {
 	const modal_dlg_bg = document.getElementById("header_modal_signon_bg");
 	modal_dlg_bg.style.display = "none";	
 }
+
+const openModifyInfoPopup = (event, user_id, user_name, user_tel) => {
+	event.preventDefault()
+    const modal_dlg_bg = document.getElementById("header_modal_modify_info_bg");
+    const modal_dlg_form = document.getElementById("header_modal_modify_info_form")
+    document.getElementById("id_modify").value = user_id
+    document.getElementById("name_modify").value = user_name
+    document.getElementById("tel_modify").value = user_tel
+    let width = window.innerWidth
+    modal_dlg_form.style.left = (width/2 - 150) + 'px'
+    modal_dlg_bg.style.display = "block"
+}
+
+const closeModifyInfoPopup = (event) => {
+	event.preventDefault()
+	const modal_dlg_bg = document.getElementById("header_modal_modify_info_bg");
+	modal_dlg_bg.style.display = "none";	
+}

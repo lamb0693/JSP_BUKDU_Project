@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +62,9 @@
                 <c:forEach var="board" items="${boards }">
                     <div class='index_grid21_container bgcolor2'>
 	                    <div class='grid21_userid'>${board.user_id }</div>
-	                    <div class='grid21_content'>${board.content }</div>
+	                    <div class='grid21_content'>
+	                    	<c:out value="${fn:substring(board.content, 0, 19) }" />
+	                    </div>
 	                    <div class='grid21_update'>
 	                    	<fmt:formatDate value="${board.modified_at}" pattern="y/M/d" type="date"/>
 	                    </div>

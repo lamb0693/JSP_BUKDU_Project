@@ -57,16 +57,20 @@ public class LoginController extends HttpServlet {
 			session.removeAttribute("mp_isLogin");
 			session.removeAttribute("mp_user_name");
 			session.removeAttribute("mp_isAdmin");
+			session.removeAttribute("mp_user_tel");
+			request.setAttribute("result", "Login 실패, Id와 password를 다시 확인하세요");
 		} else { // 성공하면 session check 하고 index page로 return
 			System.out.println("--LoginController---------login 성공  set session -------------");
 			session.setAttribute("mp_user_id", dto.getId());
 			session.setAttribute("mp_isLogin", "login_state");
 			session.setAttribute("mp_user_name", dto.getName());
+			session.setAttribute("mp_user_tel", dto.getTel());
 			if(dto.isIsadmin()) session.setAttribute("mp_isAmdin", "admin");
 			else session.setAttribute("mp_isAmdin", "general");
+			request.setAttribute("result", "Login 성공, 로그인 처리합니다");
 		}
 		
-		String urlTo = "/index.jsp";
+		String urlTo = "/login_result.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(urlTo);
 		dispatcher.forward(request, response);	
 	}

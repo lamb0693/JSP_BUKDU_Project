@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${result } <br> 2초 후 홈페이지로 이동합니다
+	<h1>${result }</h1>
 </body>
 </html>

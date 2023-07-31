@@ -110,6 +110,36 @@ public class MemberDAO extends JDBCConnection{
 
 	}
 	
+	public String updateMember(String id, String password, String name, String tel){
+		
+		String sql = "Update member SET password=?, name=?, tel=? " 
+				  + " WHERE id = ?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, password);
+			pstmt.setString(2, name);
+			pstmt.setString(3, tel);
+			pstmt.setString(4, id);
+			System.out.println("---------" + pstmt.toString() + "--------------------");
+			int lineUpdated =pstmt.executeUpdate();
+			this.closeJDBCCOnnection();
+			
+			if(lineUpdated == 1) {
+				return "UPDATE_OK";
+			} else {
+				System.out.println("==========error in MEMBERDAO:updateMember============");
+				return "ERROR";
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("------------error in getUserDTO---------------");
+			e.printStackTrace();
+			return e.getMessage();
+		}
+		
+	}
+	
 	// login 성공하면 dto return 실패하면 null return
 	public MemberDTO checkLogin(String id, String password) {
 		MemberDTO dto = new MemberDTO();

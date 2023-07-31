@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.gallery_container{
+    margin : 0 auto;
+    width: 920px;
+    background-color: #eeeeee;
+    height: auto;
+}
+.gallery_flex_container{
+    margin : 0 auto;
+    width: 920px;
+    display: flex;
+    height : auto;
+    margin-bottom: 3px;	
+    padding : 0 10px 0 10px;
+}
