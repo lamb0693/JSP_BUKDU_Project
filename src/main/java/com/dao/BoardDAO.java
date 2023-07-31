@@ -5,11 +5,12 @@ import java.util.Map;
 import java.util.Vector;
 
 import com.dto.BoardDTO;
+import com.dto.BoardDTOJoin;
 import com.util.JDBCConnection;
 
 public class BoardDAO extends JDBCConnection{
 
-	public Vector<BoardDTO> selectAllBoard(int max, int offset){
+	public Vector<BoardDTO> selectAllBoardJoin(int max, int offset){
 		BoardDTO dto = null; 
 		Vector<BoardDTO> vBoard = new Vector<>();
 		
@@ -34,6 +35,53 @@ public class BoardDAO extends JDBCConnection{
 				
 				vBoard.add(dto);
 			}
+		} catch (Exception e) {
+			System.out.println("------------error in selectAllMember@BoardDAO---------------");
+			e.printStackTrace();
+		}
+		
+		// this.closeJDBCCOnnection(); Controller에서 닫기
+		
+		System.out.println("--------------vBoard size in BoardDAO return :" + vBoard.size() + "---------" );
+		return vBoard;
+	}
+	
+	public Vector<BoardDTOJoin> selectAllBoard(int max, int offset){
+		BoardDTOJoin dto = null; 
+		Vector<BoardDTOJoin> vBoard = new Vector<>();
+		
+		String sql = "SELECT board.*, member.name FROM board INNER JOIN member ON board.user_id = member.id WHERE board.is_reply = 0";
+		if( max != -1) sql = sql + " LIMIT " + max;
+		if( offset != -1) sql = sql + " OFFSET " + offset;
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			System.out.println("---------" + pstmt.toString() + "--------------------");
+			resultSet =pstmt.executeQuery();
+			
+			while(resultSet.next()) {
+				dto = new BoardDTOJoin();
+				dto.setId(resultSet.getInt("id"));
+				dto.setUser_id(resultSet.getString("user_id"));
+				dto.setIs_reply(resultSet.getBoolean("is_reply"));
+				dto.setOrig_id(resultSet.getInt("orig_id"));
+				dto.setContent(resultSet.getString("content"));
+				dto.setCreated_at(resultSet.getTimestamp("created_at"));
+				dto.setModified_at(resultSet.getTimestamp("modified_at"));
+				dto.setUser_name("name");
+												
+				vBoard.add(dto);
+			}
+			// 하나씩 마다 댓글 갯수를 추가
+			for(BoardDTOJoin board : vBoard) {
+				sql = "SELECT COUNT(*) AS reply_no FROM board WHERE orig_id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, board.getId());
+				resultSet = pstmt.executeQuery();
+				resultSet.next();
+				board.setReplyNo(resultSet.getInt("reply_no"));
+			}
+			
 		} catch (Exception e) {
 			System.out.println("------------error in selectAllMember@BoardDAO---------------");
 			e.printStackTrace();

@@ -8,10 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/MyProject/css/grid2by2.css">
+    <link rel="stylesheet" href="/MyProject/css/home.css">
     <link rel="stylesheet" href="/MyProject/css/header.css">
+    <link rel="stylesheet" href="/MyProject/css/footer.css">
     <script src="/MyProject/js/header.js"></script>
     <script src="/MyProject/js/home.js"></script>
+    
 </head>
 <body>
     <div class="index_container">
@@ -23,7 +25,13 @@
                     <div class='grid21_userid'>아이디</div>
                     <div class='grid21_content'>내용</div>
                     <div class='grid21_update'>수정</div>
-                    <div class='grid21_view'>댓글</div>
+                    <div class='grid21_view'>조회</div>
+                </div>
+                <div class='index_grid11_container bgcolor2'>
+                    <div class='grid21_userid'>chance</div>
+                    <div class='grid21_content'>공사중인 페이지 입니다</div>
+                    <div class='grid21_update'>2023/7/31</div>
+                    <div class='grid21_view'>5</div>
                 </div>
             </div> 
 	            <div class="index_grid12"> 
@@ -56,7 +64,7 @@
 	                    <div class='grid21_update'>
 	                    	<fmt:formatDate value="${board.modified_at}" pattern="y/M/d" type="date"/>
 	                    </div>
-	                    <div class='grid21_view'>254</div>
+	                    <div class='grid21_view'>${board.replyNo }</div>
                 	</div>
                 </c:forEach>
 
@@ -68,9 +76,7 @@
                 주재할 예정이다.
             </div> <!-- 2열 3번째-->
         </div>
-        <div class="footer_area bgcolor2">
-            Footer Area
-        </div>
+		<jsp:include page="footer.jsp"></jsp:include>
     </div>
 </body>
 </html>

@@ -41,3 +41,19 @@ const closeLogoutPopup = (event) => {
 	const modal_dlg_bg = document.getElementById("header_modal_logout_bg");
 	modal_dlg_bg.style.display = "none";
 }
+
+
+const openSignonPopup = (event) => {
+	event.preventDefault()
+    const modal_dlg_bg = document.getElementById("header_modal_signon_bg");
+    const modal_dlg_form = document.getElementById("header_modal_signon_form")
+    let width = window.innerWidth
+    modal_dlg_form.style.left = (width/2 - 150) + 'px'
+    modal_dlg_bg.style.display = "block"
+}
+
+const closeSingonPopup = (event) => {
+	event.preventDefault()
+	const modal_dlg_bg = document.getElementById("header_modal_signon_bg");
+	modal_dlg_bg.style.display = "none";	
+}

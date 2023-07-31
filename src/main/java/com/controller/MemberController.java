@@ -90,7 +90,8 @@ public class MemberController extends HttpServlet {
 		} else if(command.equals("/create.member")){
 			System.out.println("--------create.member  in doPost DispMember---------");
 			
-			String id = request.getParameter("name");
+			request.setCharacterEncoding("UTF-8");
+			String id = request.getParameter("id");
 			String name = request.getParameter("name");
 			String tel = request.getParameter("tel");
 			String password = request.getParameter("password");

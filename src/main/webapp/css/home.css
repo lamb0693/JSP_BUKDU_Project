@@ -93,13 +93,6 @@
     flex : 0 0 40px;
     text-align: center;
 }
-/* ----------footer ------*/
-.footer_area{
-    margin : 0 auto;
-    width: 920px;
-    height : 50px;
-    margin-bottom: 3px;       
-}
 @media (max-width: 920px) {
     .index_wrap_grid{
         display: grid; /* Keep the display as grid */
@@ -179,7 +172,6 @@
     .footer_area{
         margin : 0 auto;
         width: 450px;
-        height : 50px;
         margin-bottom: 3px;
     }
 }  
