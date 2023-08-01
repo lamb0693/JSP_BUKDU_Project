@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/MyProject/css/footer.css">
     <script src="/MyProject/js/header.js"></script>
     <script src="/MyProject/js/home.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     
 </head>
 <body>
@@ -78,15 +79,19 @@
                 <div class="chat_container">
         			<div class="chat_container_inner">
             			<div class="chat_grid11">
-                			<textarea class="chat_window" id="chat_window"></textarea>
+            				<ul id="chat_window"></ul>
             			</div>
             			<div class="chat_grid12">
                     		<textarea class="chat_member" id="chat_member"></textarea>
             			</div>
             			<div class="chat_grid21">
-	                		<div>
-	                    		<input class="chat_send_message" type="text" name="message" id="chat_message">
-	                    		<button class="chat_send_button" id="chat_send_button">보내기</button>
+	                		<div id="chatting_div">
+	                			<form id="chatting_form" action="">
+	                				<span class="chat_id" id="chat_id">${mp_user_id}</span>
+	                				<input class="chat_send_message" type="text" name="message" id="chat_message">
+	                    			<input class="chat_send_button" type="submit" id="chat_send_button" value="보내기">
+	                			</form>
+
 	                		</div>
             			</div>
         			</div>

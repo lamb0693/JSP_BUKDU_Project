@@ -15,17 +15,31 @@
     </style>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 	<script>
-  		var socket = io("localhost:3000",
-	  		{
-//		  		  reconnectionDelayMax: 10000,
-//		  		  auth: {
-//		  		    token: "123"
-//		  		  },
-//		  		  query: {
-//		  		    "my-key": "my-value"
-//		  		  }
-	  		}
-  		);
+		window.onload = function() {
+			const socket = io("http://localhost:3000", {
+			});
+			
+			var messages = document.getElementById('chat_message');
+			var form = document.getElementById('chatting_form');
+  			var input = document.getElementById('chat_send_button');
+
+  			form.addEventListener('submit', function(e) {
+    			e.preventDefault();
+    			if (input.value) {
+					message = socket.id + ' : ' + input.value
+      				socket.emit('chat message', message);
+      				input.value = '';
+    			}
+  			});	
+  			
+  			socket.on('chat message', function(msg) {
+    			var item = document.createElement('li');
+    			item.textContent = msg;
+    			messages.appendChild(item);
+    			window.scrollTo(0, document.body.scrollHeight);
+  			});
+		}
+			
 	</script>
   </head>
   <body>
