@@ -79,7 +79,7 @@
                 <div class="chat_container">
         			<div class="chat_container_inner">
             			<div class="chat_grid11">
-            				<ul id="chat_window"></ul>
+            				<ul id="chat_window" class="chat_window"></ul>
             			</div>
             			<div class="chat_grid12">
                     		<textarea class="chat_member" id="chat_member"></textarea>
@@ -87,9 +87,11 @@
             			<div class="chat_grid21">
 	                		<div id="chatting_div">
 	                			<form id="chatting_form" action="">
+	                				<div id="chatting_div" class="chatting_div">
 	                				<span class="chat_id" id="chat_id">${mp_user_id}</span>
 	                				<input class="chat_send_message" type="text" name="message" id="chat_message">
 	                    			<input class="chat_send_button" type="submit" id="chat_send_button" value="보내기">
+	                				</div>
 	                			</form>
 
 	                		</div>
