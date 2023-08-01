@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.BoardDAO;
+import com.dao.UploadFileDAO;
 import com.dto.BoardDTOJoin;
+import com.dto.UploadFileDTO;
 
 /**
  * Servlet implementation class HomeController
@@ -33,6 +35,11 @@ public class HomeController extends HttpServlet {
 
 		System.out.println("============ vBoard size =" + vBoard.size() + "--------");
 		request.setAttribute("boards", vBoard);
+		
+		UploadFileDAO imageDao = new UploadFileDAO();	
+		Vector<UploadFileDTO> vImage = imageDao.selectAllFiles(3, 0);
+		request.setAttribute("images", vImage);
+		imageDao.closeJDBCCOnnection();
 		
 		String urlTo = "/home.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(urlTo);

@@ -2,6 +2,33 @@
  * 
  */
 
+const onMoveMemberBoard = (event) => {
+	event.preventDefault()
+	
+	const btnLogin = document.getElementById("btnLogin")
+	if(btnLogin.textContent.includes("logout")){
+		console.log("login State")
+		window.location.href = "/MyProject/read.board"
+	} else {
+		console.log("logout State")
+		window.alert("멤버 페이지 입니다")
+	}
+	
+}
+
+const onMoveGallery = (event) => {
+	event.preventDefault()
+	
+	const btnLogin = document.getElementById("btnLogin")
+	if(btnLogin.textContent.includes("logout")){
+		console.log("login State")
+		window.location.href = "/MyProject/read.gallery"
+	} else {
+		console.log("logout State")
+		window.alert("멤버 페이지 입니다")
+	}	
+}
+
 const onLogin = (event) => {
 	event.preventDefault()
 	console.log(event.target.innerHTML)

@@ -22,17 +22,3 @@ window.onload = () => {
 
 
 }
-
-const onMoveMemberBoard = (event) => {
-	event.preventDefault()
-	
-	const btnLogin = document.getElementById("btnLogin")
-	if(btnLogin.textContent.includes("logout")){
-		console.log("login State")
-		window.location.href = "/MyProject/read.board"
-	} else {
-		console.log("logout State")
-		window.alert("멤버 페이지 입니다")
-	}
-	
-}

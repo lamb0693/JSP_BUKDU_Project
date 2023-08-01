@@ -11,7 +11,7 @@
         <div class='header_menu_container bgcolor1'>
             <div class="header_hamburger"><button><i class="xi-bars"></i></button></div>
             <div class='header_menu1'><a class="header_link_style" href="#">공지사항</a></div>
-            <div class='header_menu2'><a class="header_link_style" href="">사진갤러리</a></div>
+            <div class='header_menu2'><a onclick="onMoveGallery(event)"class="header_link_style" href="">사진갤러리</a></div>
             <div class='header_menu3'><a onclick="onMoveMemberBoard(event)" class="header_link_style" href="">멤버게시판</a></div>
             <div class='header_menu4'><a class="header_link_style" href="#">메뉴4</a></div>
             <div class='header_menu5'>

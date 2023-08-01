@@ -12,17 +12,21 @@ public class UploadFileDAO extends JDBCConnection{
 		
 	}
 	
-	public Vector<UploadFileDTO> selectAllFiles() {
+	public Vector<UploadFileDTO> selectAllFiles(int max, int off) {
 		Vector<UploadFileDTO> vFiles = new Vector<>();
-		UploadFileDTO dto = new UploadFileDTO();
+		UploadFileDTO dto = null;
 
-		String sql = "SELECT * FROM upload";
+		String sql = "SELECT * FROM upload LIMIT ? OFFSET ?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, max);
+			pstmt.setInt(2, off);
+			System.out.println(pstmt.toString());
 			resultSet = pstmt.executeQuery();
-			
+	
 			while(resultSet.next()) {
+				dto = new UploadFileDTO();
 				dto.setId(resultSet.getInt("id"));
 				dto.setOrig_fn(resultSet.getString("orig_fn"));
 				dto.setSaved_fn(resultSet.getString("saved_fn"));
@@ -37,12 +41,11 @@ public class UploadFileDAO extends JDBCConnection{
 			// TODO Auto-generated catch block
 			System.out.println("------------error in getUserDTO---------------");
 			e.printStackTrace();
-		}
-				
+		}				
 		return vFiles;
 	}
 	
-	public int createFile(String orig_fn, String saved_fn, String user_id, String filelength) {
+	public int createFileBoard(String orig_fn, String saved_fn, String user_id, long filelength) {
 		int retValue = -1;
 		
 		String sql = "INSERT INTO upload (orig_fn, saved_fn, user_id, filelength) VALUES(?, ?, ?, ?)";
@@ -52,7 +55,7 @@ public class UploadFileDAO extends JDBCConnection{
 			pstmt.setString(1, orig_fn);
 			pstmt.setString(2,  saved_fn);
 			pstmt.setString(3,  user_id);
-			pstmt.setString(4,  filelength);
+			pstmt.setLong(4,  filelength);
 			
 			retValue = pstmt.executeUpdate();
 			

@@ -30,7 +30,7 @@
 .index_grid11{
     grid-column-start: 1 ;
     grid-column-end: 2;
-    background-color:#FFFFE4;
+    background-color:#FFFFDA;
 }
 .index_grid12{
     grid-column-start: 2 ;
@@ -46,7 +46,7 @@
 .index_grid22{
     grid-column-start: 2 ;
     grid-column-end: 3;
-    background-color:#FFFFE4;
+    background-color:#FFFFDA;
 }
 .index_link_text {
 	text-decoration: none;
@@ -64,7 +64,7 @@
 	/*padding : 4px 2px 4px 2px */;
 }
 .picture_in_gallery{
-
+	overflow:hidden;
 }
 .index_grid21_container{
 	display: flex;
@@ -92,6 +92,62 @@
 .grid21_view{
     flex : 0 0 40px;
     text-align: center;
+}
+/* chat grid 내용물 */
+.chat_container{
+	margin :0 auto;
+    width : 430px;
+}
+.chat_container_inner{
+    display : grid;
+    grid-template-columns: 330px 100px;
+    grid-template-rows : 230px 30px;
+}
+.chat_grid11{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: aqua;
+    height: 100%;
+}
+.chat_grid12{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background-color:brown;
+    height: 100%;
+
+}
+.chat_grid21{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: blueviolet;
+    height: 100%;
+
+}
+.chat_send_message{
+    width : 350px;
+    font-size :20px;
+    box-sizing: border-box;
+}
+.chat_send_button{
+	margin-left : 10px;
+}
+.chat_window{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color : #cccccc;
+}
+.chat_member{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color : #aaaaaa;
 }
 @media (max-width: 920px) {
     .index_wrap_grid{

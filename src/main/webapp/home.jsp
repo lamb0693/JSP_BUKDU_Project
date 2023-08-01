@@ -29,29 +29,29 @@
                     <div class='grid21_update'>수정</div>
                     <div class='grid21_view'>조회</div>
                 </div>
-                <div class='index_grid11_container bgcolor2'>
-                    <div class='grid21_userid'>chance</div>
-                    <div class='grid21_content'>공사중인 페이지 입니다</div>
-                    <div class='grid21_update'>2023/7/31</div>
-                    <div class='grid21_view'>5</div>
-                </div>
+                <c:forEach begin="0" end="8">
+                    <div class='index_grid11_container bgcolor2'>
+	                    <div class='grid21_userid'>chance</div>
+	                    <div class='grid21_content'>공사중인 페이지 입니다</div>
+	                    <div class='grid21_update'>2023/7/31</div>
+	                    <div class='grid21_view'>5</div>
+                	</div>
+                </c:forEach>
+
             </div> 
 	            <div class="index_grid12"> 
 	            <h5><a class="index_link_text" onclick="" href="#">사진 갤러리 바로 가기</a></h5>
                 <div class='index_grid12_container bgcolor1' id='picture_in_gallery'>
                 	<div id="picture_in_gallery" class="picture_in_gallery">
-                		<img src="/MyProject/img/image1.jpg" height="260px" alt="ImageGallery">
-                		<img src="/MyProject/img/image2.jpg" height="260px" alt="ImageGallery">
-                		<img src="/MyProject/img/image3.jpg" height="260px" alt="ImageGallery">
+                		<c:forEach var="image" items="${images}">
+                			<img src="UploadedFiles/${image.saved_fn }" height="260px" alt="ImageGallery">
+                		</c:forEach>
                 	</div>
                     
                 </div>
                 
             </div> 
             <div class="index_grid21">
-            	<!-- 
-            	           	<h4><a class="index_link_text" href="<%=request.getContextPath() %>/read.board">멤버 게시판 바로가기</a></h4>
-            	 -->
             	<h5><a class="index_link_text" onclick="onMoveMemberBoard(event)" href="#">멤버 게시판 바로가기</a></h5>
                 <div class='index_grid21_container bgcolor1'>
                     <div class='grid21_userid'>아이디</div>
@@ -74,10 +74,23 @@
 
             </div> 
             <div class="index_grid22">
-                <p>(서울·바르샤바=뉴스1) 최동현 기자 </p>= 윤석열 대통령은 16일(현지시간)
-                집중호우로 희생된 피해자들과 유가족을 위로하고 일부 지역에서 사전 통제가 
-                이루어지지 않은 점을 지적했다. 윤 대통령은 귀국 즉시 중대본 회의를 직접
-                주재할 예정이다.
+            	<h5><a class="index_link_text" onclick="onMoveMemberBoard(event)" href="#">채팅 Area</a></h5>
+                <div class="chat_container">
+        			<div class="chat_container_inner">
+            			<div class="chat_grid11">
+                			<textarea class="chat_window" id="chat_window"></textarea>
+            			</div>
+            			<div class="chat_grid12">
+                    		<textarea class="chat_member" id="chat_member"></textarea>
+            			</div>
+            			<div class="chat_grid21">
+	                		<div>
+	                    		<input class="chat_send_message" type="text" name="message" id="chat_message">
+	                    		<button class="chat_send_button" id="chat_send_button">보내기</button>
+	                		</div>
+            			</div>
+        			</div>
+    			</div>
             </div> <!-- 2열 3번째-->
         </div>
 		<jsp:include page="footer.jsp"></jsp:include>
