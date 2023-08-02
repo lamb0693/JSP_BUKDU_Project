@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.MemberDAO;
 import com.dto.MemberDTO;
+import com.util.MyPasswordEncoder;
 
 /**
  * Servlet implementation class DispMember
@@ -95,13 +96,15 @@ public class MemberController extends HttpServlet {
 			String name = request.getParameter("name");
 			String tel = request.getParameter("tel");
 			String password = request.getParameter("password");
+			String hashedPassword = MyPasswordEncoder.hashPassword(password);
+			// System.out.println("hashedPassword : " + hashedPassword);
 			
 			MemberDAO dao = new MemberDAO();
-			String result = dao.createMember(id, password, name, tel);
+			String result = dao.createMember(id, hashedPassword, name, tel);
 			dao.closeJDBCCOnnection(); 
 			
 			request.setAttribute("result", result);
-			dispatchTo("/member/create_result.jsp", request, response);	
+			dispatchTo("sendToHomeWithResult.jsp", request, response);	
 		} else if(command.equals("/update.member")){
 			System.out.println("--------update.member  in doPost DispMember---------");
 			
@@ -112,11 +115,12 @@ public class MemberController extends HttpServlet {
 			String password = request.getParameter("password");
 			
 			MemberDAO dao = new MemberDAO();
-			String result = dao.updateMember(id, password, name, tel);
+			String hashedPassword = MyPasswordEncoder.hashPassword(password);
+			String result = dao.updateMember(id, hashedPassword, name, tel);
 			dao.closeJDBCCOnnection(); 
 			
 			request.setAttribute("result", result);
-			dispatchTo("/member/update_result.jsp", request, response);
+			dispatchTo("member/sendToLogoutAfterUpdate.jsp", request, response);
 			
 		} else if(command.equals("/delete.member")) {
 			System.out.println("-------delete.member  in doPost DispMember----------");

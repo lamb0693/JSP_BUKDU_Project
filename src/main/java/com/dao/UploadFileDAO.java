@@ -20,7 +20,9 @@ public class UploadFileDAO extends JDBCConnection{
 		
 		try {
 			pstmt = con.prepareStatement(sql);
+			if(max == -1) max=12;
 			pstmt.setInt(1, max);
+			if(off ==-1) off=0;
 			pstmt.setInt(2, off);
 			System.out.println(pstmt.toString());
 			resultSet = pstmt.executeQuery();

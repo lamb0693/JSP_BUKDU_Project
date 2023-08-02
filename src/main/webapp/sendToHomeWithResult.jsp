@@ -6,8 +6,17 @@
 <meta charset="UTF-8">
 <meta http-equiv="refresh" content="2;url=/MyProject/home">
 <title>Insert title here</title>
+<style>
+	.result_view{
+		font-size : 30px;
+		width : 920px;
+		height : 40px;
+		background-color : #cccccc;
+		margin : 0 auto;
+	}
+</style>
 </head>
 <body>
-	<h1>${result }</h1>
+	<div class="result_view">${result }</div>
 </body>
 </html>

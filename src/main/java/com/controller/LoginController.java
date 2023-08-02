@@ -70,7 +70,7 @@ public class LoginController extends HttpServlet {
 			request.setAttribute("result", "Login 성공, 로그인 처리합니다");
 		}
 		
-		String urlTo = "/login_result.jsp";
+		String urlTo = "/sendToHomeWithResult.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(urlTo);
 		dispatcher.forward(request, response);	
 	}

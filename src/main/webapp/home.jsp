@@ -23,7 +23,7 @@
  		<jsp:include page="header.jsp"></jsp:include>
         <div class="index_wrap_grid">
             <div class="index_grid11">
-            	<h5><a class="index_link_text" onclick="" href="#">공지 게시판 바로가기</a></h5>
+            	<h5><a class="index_link_text" onclick="" href="#"><img src="img/공지사항.png"></a></h5>
                 <div class='index_grid11_container bgcolor1'>
                     <div class='grid21_userid'>아이디</div>
                     <div class='grid21_content'>내용</div>
@@ -41,7 +41,7 @@
 
             </div> 
 	            <div class="index_grid12"> 
-	            <h5><a class="index_link_text" onclick="" href="#">사진 갤러리 바로 가기</a></h5>
+	            <h5><a class="index_link_text" onclick="onMoveGallery(event)"  href="#"><img src="img/갤러리.png"></a></h5>
                 <div class='index_grid12_container bgcolor1' id='picture_in_gallery'>
                 	<div id="picture_in_gallery" class="picture_in_gallery">
                 		<c:forEach var="image" items="${images}">
@@ -53,7 +53,7 @@
                 
             </div> 
             <div class="index_grid21">
-            	<h5><a class="index_link_text" onclick="onMoveMemberBoard(event)" href="#">멤버 게시판 바로가기</a></h5>
+            	<h5><a class="index_link_text" onclick="onMoveMemberBoard(event)" href="#"><img src="img/회원게시판.png"></a></h5>
                 <div class='index_grid21_container bgcolor1'>
                     <div class='grid21_userid'>아이디</div>
                     <div class='grid21_content'>내용</div>
@@ -75,7 +75,7 @@
 
             </div> 
             <div class="index_grid22">
-            	<h5><a class="index_link_text" onclick="onMoveMemberBoard(event)" href="#">채팅 Area</a></h5>
+            	<h5><a class="index_link_text" onclick="onMoveMemberBoard(event)" href="#"><img src="img/회원대화방.png"></a></h5>
                 <div class="chat_container">
         			<div class="chat_container_inner">
             			<div class="chat_grid11">

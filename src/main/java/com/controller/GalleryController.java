@@ -83,11 +83,6 @@ public class GalleryController extends HttpServlet {
 				UploadFileDAO dao = new UploadFileDAO();
 
 				Vector<UploadFileDTO> vBoard = dao.selectAllFiles(nMax, nOff);
-//				System.out.println("--------vBoard in controller");
-//				System.out.println(vBoard.get(0).getId());
-//				System.out.println(vBoard.get(1).getId());
-//				System.out.println(vBoard.get(2).getId());
-
 				dao.closeJDBCCOnnection();
 
 				System.out.println("============ vBoard size =" + vBoard.size() + "--------");
@@ -160,7 +155,7 @@ public class GalleryController extends HttpServlet {
 						UploadFileDAO dao = new UploadFileDAO();
 						int createdLine = dao.createFileBoard(originalFileName, filesystemName, user_id, length );
 						if(createdLine==1) {
-							request.setAttribute("result", "1 file uploaded");
+							request.setAttribute("result", "1개의 파일이 upload 되었습니다");
 						}else {
 							request.setAttribute("result", "Error ... .");
 						}
@@ -175,7 +170,7 @@ public class GalleryController extends HttpServlet {
 				}
 				
 				// 디스패치
-				dispatchTo("fileupload_result.jsp", request, response);
+				dispatchTo("sendToGalleryWithResult.jsp", request, response);
 			} else {
 				System.out.println("session logout");
 				dispatchTo("index.jsp", request, response);

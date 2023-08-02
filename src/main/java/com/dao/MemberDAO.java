@@ -6,6 +6,7 @@ import java.util.Vector;
 
 import com.dto.MemberDTO;
 import com.util.JDBCConnection;
+import com.util.MyPasswordEncoder;
 
 public class MemberDAO extends JDBCConnection{
 	
@@ -65,10 +66,10 @@ public class MemberDAO extends JDBCConnection{
 			this.closeJDBCCOnnection();
 			
 			if(lineUpdated == 1) {
-				return "INSERT_OK";
+				return "새 사용자로 등록 되었습니다";
 			} else {
 				System.out.println("==========error in MEMBERDAO:CreateMember============");
-				return "ERROR";
+				return "System 오류입니다";
 			}
 			
 		} catch (SQLException e) {
@@ -96,7 +97,7 @@ public class MemberDAO extends JDBCConnection{
 			this.closeJDBCCOnnection();
 			
 			if(lineUpdated == 1) {
-				return "INSERT_OK";
+				return "새 사용자로 등록 되었습니다";
 			} else {
 				System.out.println("==========error in MEMBERDAO:CreateMember============");
 				return "ERROR";
@@ -126,7 +127,7 @@ public class MemberDAO extends JDBCConnection{
 			this.closeJDBCCOnnection();
 			
 			if(lineUpdated == 1) {
-				return "UPDATE_OK";
+				return "개인정보가 수정되었습니다";
 			} else {
 				System.out.println("==========error in MEMBERDAO:updateMember============");
 				return "ERROR";
@@ -148,8 +149,9 @@ public class MemberDAO extends JDBCConnection{
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);;
-			pstmt.setString(2, password);
+			pstmt.setString(1, id);
+			String hashedPassword = MyPasswordEncoder.hashPassword(password);
+			pstmt.setString(2, hashedPassword);
 			System.out.println("---------" + pstmt.toString() + "--------------------");
 			resultSet =pstmt.executeQuery();
 			

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/MyProject/css/footer.css">
 <link rel="stylesheet" href="/MyProject/css/gallery.css">
 <script src="/MyProject/js/header.js"></script>
+<script src="/MyProject/js/gallery.js"></script>
 <style>
 </style>
 </head>
@@ -24,14 +25,14 @@
 	                갤러리 사진 올리기
 	            </div>
 	            <div class="gallery_myFormMain">
-	                <form action="/MyProject/create.gallery" class="gallery_myFormGeneral" enctype="multipart/form-data" method="post">
+	                <form action="/MyProject/create.gallery" class="gallery_myFormGeneral" enctype="multipart/form-data" method="post" id="upload_form">
 	                    <div class="gallery_myControlDiv">
 	                        <span class="gallery_mylabelSpan">업로드 할 파일 선택</span>
 	                        <span class="gallery_myInputSpan">
 	                            <input class="myInput" type="file" name="up_file" id="up_file" accept="image/*">
 	                        </span>
 	                        <span class="gallery_myButtonSpan">
-	                            <input class="gallery_myBtnSubmit" type="submit" name="btnSubmit" id="btnSubmit" value="이미지 올리기">
+	                            <input class="gallery_myBtnSubmit" type="submit" name="btnSubmit" id="btnSubmit" value="이미지 올리기" onclick="onUploadImage(event)">
 	                        </span>
 	                    </div>
 	                </form>

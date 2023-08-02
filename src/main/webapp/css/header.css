@@ -11,7 +11,7 @@
     width: 900px;	/* padding만큼 줄였음 */
     height : 40px;
     font-size: 24px;
-    background-color: #eeeeee;
+    background-color: #333333;
     padding-left: 20px;
 }
 .header_link_home > a {

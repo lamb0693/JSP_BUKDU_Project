@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
         <div class="header_link_home">
-            <a href="/MyProject/home">홈으로</a>
+            <a href="/MyProject/home"><img src="/MyProject/img/bukdu.png"></a>
         </div>
         <div class="header_image bgcolor2">
             <img src="/MyProject/img/header_img.png">
@@ -11,7 +11,7 @@
         <div class='header_menu_container bgcolor1'>
             <div class="header_hamburger"><button><i class="xi-bars"></i></button></div>
             <div class='header_menu1'><a class="header_link_style" href="#">공지사항</a></div>
-            <div class='header_menu2'><a onclick="onMoveGallery(event)"class="header_link_style" href="">사진갤러리</a></div>
+            <div class='header_menu2'><a onclick="onMoveGallery(event)" class="header_link_style" href="">사진갤러리</a></div>
             <div class='header_menu3'><a onclick="onMoveMemberBoard(event)" class="header_link_style" href="">멤버게시판</a></div>
             <div class='header_menu4'><a class="header_link_style" href="#">메뉴4</a></div>
             <div class='header_menu5'>
@@ -53,22 +53,22 @@
 		            <div class="header_myFormHeaderClose" onclick="closeLoginPopup(event);">X</div>
 		        </div>
 		        <div class="header_myFormMain">
-		            <form action="/MyProject/loginController" method="post" class="header_myFormGeneral" method="post">
+		            <form action="/MyProject/loginController" method="post" class="header_myFormGeneral" id="header_myFormGeneral">
 		            	<div class="header_myControlDiv">
 		                    <label class="header_mylabelSpan" for="id">아이디 </label>
 		                    <span class="header_myInputSpan">
-		                        <input type="text" class="myInput" name="id" id="id">
+		                        <input type="text" class="myInput" name="id" id="login_id">
 		                    </span>
 		                </div>
 		                <div class="header_myControlDiv">
 		                    <label class="header_mylabelSpan" for="password">비밀번호 </label>
 		                    <span class="header_myInputSpan">
-		                        <input type="password" class="myInput" name="password" id="password">
+		                        <input type="password" class="myInput" name="password" id="login_password">
 		                    </span>
 		                </div>
 		                <div class="header_myControlDiv">
 		                    <span class="header_myButtonSpan">
-		                        <input class="header_myBtnSubmit" type="submit" value="로그인">
+		                        <input class="header_myBtnSubmit" type="submit" value="로그인" onclick="checkLoginIdPwd(event)">
 		                    </span>
 		                </div>
 		            </form>
@@ -112,7 +112,7 @@
 		            <div class="header_myFormHeaderClose" onclick="closeSingonPopup(event);">X</div>
 		        </div>
 		        <div class="header_myFormMain">
-		            <form action="/MyProject/create.member" method="post"" class="header_myFormGeneral">
+		            <form action="/MyProject/create.member" method="post" class="header_myFormGeneral" id="signon_form">
 		            	<div class="header_myControlDiv">
 		                    <label class="header_mylabelSpan" for="id_signon">아이디</label>
 		                    <span class="header_myInputSpan">
@@ -139,7 +139,7 @@
 		                </div>
 		                <div class="header_myControlDiv">
 		                    <span class="header_myButtonSpan">
-		                        <input class="header_myBtnSubmit" type="submit" value="회원 가입">
+		                        <input class="header_myBtnSubmit" type="submit" value="회원 가입" onclick="checkJoinonModal(event)">
 		                    </span>
 		                </div>
 		            </form>
@@ -158,7 +158,7 @@
 		            <div class="header_myFormHeaderClose" onclick="closeModifyInfoPopup(event);">X</div>
 		        </div>
 		        <div class="header_myFormMain">
-		            <form action="/MyProject/update.member" method="post" class="header_myFormGeneral">
+		            <form action="/MyProject/update.member" method="post" class="header_myFormGeneral" id="modify_form">
 		            	<div class="header_myControlDiv">
 		                    <label class="header_mylabelSpan" for="id_signon">아이디</label>
 		                    <span class="header_myInputSpan">
@@ -185,7 +185,7 @@
 		                </div>
 		                <div class="header_myControlDiv">
 		                    <span class="header_myButtonSpan">
-		                        <input class="header_myBtnSubmit" type="submit" value="정보 수정">
+		                        <input class="header_myBtnSubmit" type="submit" value="정보 수정" onclick="checkModifyModal(event)">
 		                    </span>
 		                </div>
 		            </form>
